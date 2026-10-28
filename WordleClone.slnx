@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WordleClone.API.Tests/WordleClone.API.Tests.csproj" />
+  <Project Path="WordleClone.API/WordleClone.API.csproj" />
+</Solution>

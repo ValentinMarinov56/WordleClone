@@ -1,0 +1,48 @@
+@WordleClone.API_HostAddress = http://localhost:5101
+@userId = 1
+
+### Get all users
+GET {{WordleClone.API_HostAddress}}/api/user
+Accept: application/json
+
+### Create a test user (use throwaway credentials; current API returns the stored password hash)
+POST {{WordleClone.API_HostAddress}}/api/user
+Content-Type: application/json
+
+{
+	"username": "wordle_test_user",
+	"passwordHash": "ThrowawayTestPassword123!",
+	"points": 0,
+	"gamesWon": 0
+}
+
+### Get one user (change @userId to the created user's ID)
+GET {{WordleClone.API_HostAddress}}/api/user/{{userId}}
+Accept: application/json
+
+### Update a user's stats
+PUT {{WordleClone.API_HostAddress}}/api/user?id={{userId}}
+Content-Type: application/json
+
+{
+	"id": {{userId}},
+	"username": "wordle_test_user",
+	"passwordHash": "not-used-for-stats",
+	"points": 10,
+	"gamesWon": 2
+}
+
+### Check duplicate username handling (currently expected to fail)
+POST {{WordleClone.API_HostAddress}}/api/user
+Content-Type: application/json
+
+{
+	"username": "wordle_test_user",
+	"passwordHash": "AnotherThrowawayPassword123!",
+	"points": 0,
+	"gamesWon": 0
+}
+
+### Delete the test user (run last)
+DELETE {{WordleClone.API_HostAddress}}/api/user?id={{userId}}
+Accept: application/json

@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+!WordleClone.API/dist/
+!WordleClone.API/dist/**
+.git/
+.vs/
+.vscode/

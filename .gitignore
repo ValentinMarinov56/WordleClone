@@ -1,0 +1,12 @@
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+
+# Build output
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+/artifacts/
+.vs/
